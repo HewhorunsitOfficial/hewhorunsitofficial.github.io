@@ -1,1 +1,468 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hewhorunsit | Gaming Channel</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #08080d;
+            color: white;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(8, 8, 13, 0.95);
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid #24243a;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #7c4dff;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #7c4dff;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px 50px;
+            background:
+                radial-gradient(circle at center, #25135c 0%, #0d0b18 40%, #08080d 75%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: clamp(50px, 10vw, 100px);
+            font-weight: 900;
+            letter-spacing: 3px;
+            color: white;
+            text-shadow: 0 0 25px #7c4dff;
+        }
+
+        .hero h1 span {
+            color: #7c4dff;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin: 20px 0 35px;
+            color: #c7c7d8;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .primary {
+            background: #7c4dff;
+            color: white;
+        }
+
+        .primary:hover {
+            background: #9b78ff;
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px #7c4dff;
+        }
+
+        .secondary {
+            border: 2px solid #7c4dff;
+            color: white;
+        }
+
+        .secondary:hover {
+            background: #7c4dff;
+            transform: translateY(-3px);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 45px;
+        }
+
+        .section-title span {
+            color: #7c4dff;
+        }
+
+        /* ABOUT */
+        .about {
+            background: #0d0d15;
+        }
+
+        .about-box {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            color: #c7c7d8;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* GAMES */
+        .games {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .game-card {
+            background: #12121d;
+            border: 1px solid #28283b;
+            border-radius: 15px;
+            padding: 35px 20px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .game-card:hover {
+            transform: translateY(-8px);
+            border-color: #7c4dff;
+            box-shadow: 0 10px 30px rgba(124, 77, 255, 0.2);
+        }
+
+        .game-icon {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .game-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .game-card p {
+            color: #9999aa;
+        }
+
+        /* VIDEOS */
+        .videos {
+            background: #0d0d15;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .video-card {
+            background: #12121d;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #28283b;
+            transition: 0.3s;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            border-color: #7c4dff;
+        }
+
+        .thumbnail {
+            height: 170px;
+            background: linear-gradient(135deg, #32157a, #151525);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 55px;
+        }
+
+        .video-info {
+            padding: 20px;
+        }
+
+        .video-info h3 {
+            margin-bottom: 10px;
+        }
+
+        .video-info p {
+            color: #9999aa;
+        }
+
+        /* SOCIALS */
+        .socials {
+            text-align: center;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .social {
+            background: #12121d;
+            border: 1px solid #28283b;
+            padding: 15px 25px;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social:hover {
+            background: #7c4dff;
+            border-color: #7c4dff;
+            transform: translateY(-3px);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #050509;
+            color: #77778a;
+            border-top: 1px solid #24243a;
+        }
+
+        footer strong {
+            color: #7c4dff;
+        }
+
+        /* MOBILE */
+        @media (max-width: 700px) {
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+
+            nav ul li a {
+                font-size: 13px;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+            }
+
+            section {
+                padding: 70px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">HEWHORUNSIT</div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#games">Games</a></li>
+            <li><a href="#videos">Videos</a></li>
+            <li><a href="#socials">Socials</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+
+            <h1>HEWHO<span>RUNSIT</span></h1>
+
+            <p>
+                Welcome to the official gaming headquarters of Hewhorunsit.
+                Gaming, challenges, streams, and good times.
+            </p>
+
+            <div class="buttons">
+                <a href="#videos" class="btn primary">Watch Videos</a>
+                <a href="#socials" class="btn secondary">Follow Me</a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+
+        <h2 class="section-title">About <span>Me</span></h2>
+
+        <div class="about-box">
+            <p>
+                Yo! I'm <strong>Hewhorunsit</strong>, a gamer creating content
+                and having fun across different games.
+                This website is the home base for my gaming channel.
+            </p>
+
+            <br>
+
+            <p>
+                Check out my latest videos, discover the games I'm playing,
+                and follow me on social media so you don't miss the next upload!
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- GAMES -->
+    <section id="games">
+
+        <h2 class="section-title">Games I <span>Play</span></h2>
+
+        <div class="games">
+
+            <div class="game-card">
+                <div class="game-icon">🎮</div>
+                <h3>Game One</h3>
+                <p>Add your favorite game here.</p>
+            </div>
+
+            <div class="game-card">
+                <div class="game-icon">🔥</div>
+                <h3>Game Two</h3>
+                <p>Add another game here.</p>
+            </div>
+
+            <div class="game-card">
+                <div class="game-icon">⚔️</div>
+                <h3>Game Three</h3>
+                <p>Add another game here.</p>
+            </div>
+
+            <div class="game-card">
+                <div class="game-icon">🏆</div>
+                <h3>Game Four</h3>
+                <p>Add another game here.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- VIDEOS -->
+    <section class="videos" id="videos">
+
+        <h2 class="section-title">Latest <span>Videos</span></h2>
+
+        <div class="video-grid">
+
+            <div class="video-card">
+                <div class="thumbnail">▶️</div>
+
+                <div class="video-info">
+                    <h3>My Latest Gaming Video</h3>
+                    <p>Check out the newest video from Hewhorunsit.</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="thumbnail">🎮</div>
+
+                <div class="video-info">
+                    <h3>Epic Gaming Session</h3>
+                    <p>Another awesome gaming session.</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="thumbnail">🔥</div>
+
+                <div class="video-info">
+                    <h3>Best Moments</h3>
+                    <p>Some of the best moments from the channel.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SOCIALS -->
+    <section class="socials" id="socials">
+
+        <h2 class="section-title">Follow <span>Hewhorunsit</span></h2>
+
+        <div class="social-buttons">
+
+            <!-- Replace # with your real links -->
+            <a href="#" class="social">YouTube</a>
+            <a href="#" class="social">TikTok</a>
+            <a href="#" class="social">Discord</a>
+            <a href="#" class="social">Twitch</a>
+            <a href="#" class="social">Instagram</a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            © 2026 <strong>Hewhorunsit</strong>. All rights reserved.
+        </p>
+    </footer>
+
+</body>
+</html>
